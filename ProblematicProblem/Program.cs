@@ -13,7 +13,7 @@ namespace ProblematicProblem
         static void Main(string[] args)
         {
             Console.Write("Hello, welcome to the random activity generator! \nWould you like to generate a random activity? yes/no: ");
-            cont = Console.ReadLine() == "yes" ? true : false;
+            cont = Console.ReadLine().ToLower() == "yes" ? true : false;
             if (cont != true)
             {
                 Console.WriteLine("Alright then. Have a nice day!");
@@ -36,7 +36,7 @@ namespace ProblematicProblem
                 for (int i = 0; i < 10; i++)
                 {
                     Console.Write(". ");
-                    Thread.Sleep(500);
+                    Thread.Sleep(250);
                 }
                 Console.WriteLine();
                 Console.Write("Choosing your random activity");
@@ -44,7 +44,7 @@ namespace ProblematicProblem
                 for (int i = 0; i < 9; i++)
                 {
                     Console.Write(". ");
-                    Thread.Sleep(500);
+                    Thread.Sleep(250);
                 }
 
                 Console.WriteLine();
@@ -63,19 +63,19 @@ namespace ProblematicProblem
                 Console.Write($"Ah got it! {userName}, your random activity is: {randomActivity}! Is this ok or do you want to grab another activity? Keep/Redo: ");
                 Console.WriteLine();
 
-                string input = Console.ReadLine();
-                if(input != "Redo")
+                string input = Console.ReadLine().ToLower();
+                if(input != "redo")
                 {
                     Console.WriteLine($"Great! Enjoy {randomActivity}!");
                     return;
                 }
-                bool cont = input == "Keep" ? false : true;
+                bool cont = input == "keep" ? false : true;
             }
 
             Console.WriteLine();
             Console.Write("Would you like to see the current list of activities? Sure/No thanks: ");
 
-            bool seeList = Console.ReadLine() == "Sure" ? true : false;
+            bool seeList = Console.ReadLine().ToLower() == "sure" ? true : false;
 
             if (seeList)
             {
@@ -86,7 +86,7 @@ namespace ProblematicProblem
                 }
                 Console.WriteLine();
                 Console.Write("Would you like to add any activities before we generate one? yes/no: ");
-                bool addToList = Console.ReadLine() == "yes" ? true : false;
+                bool addToList = Console.ReadLine().ToLower() == "yes" ? true : false;
                 Console.WriteLine();
 
                 while (addToList)
@@ -103,9 +103,7 @@ namespace ProblematicProblem
                     Console.WriteLine("Would you like to add more? yes/no: ");
                     addToList = Console.ReadLine() == "yes" ? true : false;
                 }
-
             }
-       
         }
     }
 }
